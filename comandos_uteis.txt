@@ -1,0 +1,5 @@
+curl 0.0.0.0:4000/getDados
+
+curl -d "id=6&nome=Cinthya&idade=29" -X POST 0.0.0.0:4000/insereAluno
+
+curl 0.0.0.0:4000/getAluno?nome=cin
