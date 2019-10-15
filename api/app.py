@@ -16,20 +16,17 @@ app.config['MYSQL_DATABASE_PASSWORD'] = 'senhaFiap'
 app.config['MYSQL_DATABASE_DB'] = 'fiapdb'
 app.config['MYSQL_DATABASE_HOST'] = 'mysql'
 
-def json_serial(obj):
-    """JSON serializer for objects not serializable by default json code"""
-    if isinstance(obj, (datetime, date)):
-        return obj.isoformat()
-    raise TypeError ("Type %s not serializable" % type(obj))
+#def json_serial(obj):
+ #   """JSON serializer for objects not serializable by default json code"""
+  #  if isinstance(obj, (datetime, date)):
+   #     return obj.isoformat()
+    #raise TypeError ("Type %s not serializable" % type(obj))
 
 
 @app.route("/")
 def hello():
-    return "Bem-vindo a API FIAP!\n"
+    return "1 2 3 Testando!\n"
 
-@app.route("/Teste")
-def Teste():
-    return "Welcome to teste!\n"
 
 @app.route("/getAluno")
 def getAluno():
@@ -68,10 +65,9 @@ def insereAluno():
         cursor = conn.cursor()
         cursor.execute("insert into aluno values ("+id_aluno+",'"+nome+"', "+idade+");")
         conn.commit()
-
         cursor.close()
         conn.close()
-        return "Inserido com sucesso"
+        return "Inserido com sucesso!\n"
     except Exception as e:
         return 'Erro /getDados' + str(e) + traceback.format_exc()
 
